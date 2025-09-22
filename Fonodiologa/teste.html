@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dra. Tainard — Fonoaudiologia</title>
+
+  <!-- Fontes e FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pM1FZ3Ih7ZBmyu/3yktbKX/6R1BzR0L/eKN5bXg+omTXg8/gh8v6DFv+z0c8/53ek0Yx0m+5NdBzhZl2KpMl1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+
+  <style>
+  /* ===== Reset / Base ===== */
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family: 'Montserrat', sans-serif;
+    color:#222;
+    background: linear-gradient(180deg,#f5f6f7 0%, #eef0f2 100%);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.5;
+    font-size:16px;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* ===== Header ===== */
+  .logo-texto h1 {
+  font-family: 'Allura', cursive; /* fonte manuscrita */
+  font-size: 2.8rem; /* aumenta tamanho */
+  color: #f8f6f6;       /* cor do texto */
+  margin: 0;
+}
+.logo-texto span {
+  font-family: Arial, sans-serif; /* fonte limpa para o cargo */
+  font-size: 0.95rem;
+  color: #fbf9f9;
+  letter-spacing: 1px;
+}
+
+  header{
+    position:sticky; top:0; z-index:1200;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:20px; padding:18px 36px;
+    background:#2f2f2f; color:#fff;
+    box-shadow:0 6px 22px rgba(0,0,0,0.12);
+  }
+  .logo img{height:84px; width:auto; display:block}
+
+  nav{display:flex; align-items:center; gap:24px}
+  nav ul{list-style:none;display:flex; gap:18px; align-items:center}
+  nav ul li a{color:#f2f2f2; font-weight:600; padding:8px 10px; border-radius:8px}
+  nav ul li a:hover{background:rgba(255,255,255,0.04)}
+
+  .cta-whatsapp{
+    background:#25D366; color:#fff; padding:10px 14px; border-radius:10px; font-weight:700;
+    display:inline-flex; gap:8px; align-items:center;
+    box-shadow:0 8px 24px rgba(37,211,102,0.12);
+  }
+
+  .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer}
+
+  /* ===== HERO ===== */
+  .hero{
+    max-width:1200px; margin:36px auto 10px; padding:28px; display:grid;
+    grid-template-columns: 1fr 460px; gap:32px; align-items:center;
+  }
+  .hero .texto h1{font-size:2.6rem; color:#1f1f1f; font-weight:800; margin-bottom:12px}
+  .hero .texto p{font-size:1.06rem; color:#4a4a4a; margin-bottom:18px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:10px;font-weight:700}
+  .btn-primary{background:#2f5fa3;color:#fff}
+  .btn-outline{background:transparent;border:2px solid rgba(47,95,163,0.12);color:#2f2f2f}
+  .hero .foto{
+    width:100%;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero .foto img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    border-radius:8px;
+  }
+
+  /* ===== Serviços ===== */
+  .especialidades{max-width:1200px;margin:28px auto;padding:18px}
+  .grid-cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px}
+  .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.06);text-align:center}
+  .card i{font-size:48px;color:#2f5fa3;margin-bottom:12px}
+
+  /* ===== Quem sou ===== */
+  .quem-sou{max-width:1200px;margin:28px auto;padding:28px;background:linear-gradient(180deg,#ffffff,#fbfdff); border-radius:10px}
+  .quem-sou .wrap{display:flex; gap:28px; align-items:center}
+  .quem-sou .texto{flex:1}
+  .quem-sou .imagem{width:320px;flex:0 0 320px}
+  .quem-sou .imagem img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    border-radius:8px;
+  }
+
+  /* ===== Depoimentos ===== */
+  .depoimentos{max-width:1200px;margin:36px auto;padding:20px}
+  .depoimentos h2{font-size:2rem;margin-bottom:18px;color:#1f1f1f}
+  .slides-container{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:22px}
+  .slide{background:#fff;padding:18px;border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.06); display:flex;flex-direction:column; gap:12px}
+  .autor{display:flex;align-items:center; gap:12px}
+  .autor img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid #ddd}
+  .autor span{font-weight:700;color:#2f2f2f}
+  .slide p{color:#444; font-size:0.98rem; line-height:1.6}
+
+  /* ===== Galeria ===== */
+  .galeria{max-width:1200px;margin:36px auto;padding:18px}
+  .galeria-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px}
+  .galeria-grid img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+
+  /* ===== Contato ===== */
+  .contato{max-width:1200px;margin:36px auto;padding:18px;display:grid;grid-template-columns:1fr 420px;gap:28px}
+  .contato form{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.06)}
+  .contato input,.contato textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin-bottom:12px}
+  .contato .infos{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.04)}
+  .contato .infos p{margin:8px 0;color:#444}
+  .mapa iframe{width:100%;height:250px;border-radius:8px;border:0}
+
+  /* ===== Footer ===== */
+  footer{background:#2f2f2f;color:#fff;padding:24px;text-align:center;margin-top:28px}
+
+  /* ===== Botão WhatsApp flutuante ===== */
+  .whatsapp-float{
+    position:fixed; right:18px; bottom:18px; z-index:1500;
+    display:inline-flex; align-items:center; gap:10px; background:#25D366;color:#fff;
+    padding:12px 14px;border-radius:60px;font-weight:800;box-shadow:0 14px 36px rgba(37,211,102,0.12)
+  }
+
+  @media (max-width:1100px){
+    .hero{grid-template-columns:1fr 360px}
+    .hero .foto{height:360px}
+    .quem-sou .imagem{width:260px;flex:0 0 260px}
+  }
+  @media (max-width:820px){
+    nav ul{display:none; position:absolute; right:18px; top:72px; flex-direction:column; background:#2f2f2f; padding:12px; border-radius:8px}
+    nav ul.show{display:flex}
+    .menu-toggle{display:inline-block}
+    .hero{grid-template-columns:1fr; gap:18px}
+    .hero .foto{height:320px}
+    .contato{grid-template-columns:1fr}
+  }
+  @media (max-width:480px){
+    .hero .foto{height:240px}
+    .hero .texto h1{font-size:1.8rem}
+    .autor img{width:44px;height:44px}
+  }
+ 
+
+.sobre-fono {
+  display: grid;
+  grid-template-columns: 1fr 320px; /* texto à esquerda, imagens à direita */
+  gap: 32px; /* mais espaço entre texto e imagens */
+  align-items: start;
+  margin-bottom: 24px;
+}
+.sobre-fono .texto-fono p {
+  color: #444;
+  font-size: 1.1rem; /* fonte maior */
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+.sobre-fono .imagem-fono {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* mais espaço entre as fotos */
+}
+.sobre-fono .imagem-fono img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+@media (max-width: 820px) {
+  .sobre-fono {
+    grid-template-columns: 1fr; /* empilha no mobile */
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-texto">
+        <h1>Tainard da Silva Leite Santos</h1>
+        <span>FONOAUDIÓLOGA CRFa 5 11051</span>
+      </div>
+      
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">☰</button>
+    <nav id="nav">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#quem-sou">Quem Sou</a></li>
+        <li><a href="#trabalhos">Serviços</a></li>
+        <li><a href="#detalhes-servicos">Detalhes</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/message/WHZDNYVVUJ6MM1" target="_blank" class="cta-whatsapp">
+      <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
+    </a>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="texto">
+        <h1>Bem-vindo ao Consultório da Dra. Tainard</h1>
+        <p>Fonoaudióloga com experiência no atendimento clínico, hospitalar e domiciliar, oferecendo serviço em saúde personalizado, reconhecida pela excelência e comprometimento no cuidado de seus clientes.
+
+            Missão: Impactar positivamente a vida de cada pessoa que atendo, melhorando a qualidade de vida dos meus clientes.
+            
+            Visão e valores: Ser reconhecida pelo cliente por proporcionar experiências em 
+            serviços de saúde de maneira eficiente e segura no seu bem-estar,
+             de maneira integral e responsável, com ética e comprometimento.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://wa.me/message/WHZDNYVVUJ6MM1" target="_blank"><i class="fab fa-whatsapp"></i> Agende</a>
+          <a class="btn btn-outline" href="#contato">Fale conosco</a>
+        </div>
+      </div>
+      <div class="foto">
+        <img src="IMG_3516.jpg" alt="Dra. Tainard">
+      </div>
+    </section>
+
+    <!-- SERVIÇOS OFERECIDOS -->
+    <section class="especialidades" id="trabalhos">
+      <h2 style="text-align:center;margin-bottom:18px;color:#1f1f1f">Serviços Oferecidos</h2>
+      <div class="grid-cards">
+        <div class="card">
+          <i class="fas fa-stethoscope"></i>
+          <h3>Avaliação Fonoaudiológica</h3>
+          
+        </div>
+        <div class="card">
+          <i class="fas fa-microphone"></i>
+          <h3>Diagnóstico Fonoaudiológico</h3>
+          
+        </div>
+        <div class="card">
+          <i class="fas fa-child"></i>
+          <h3>Tratamento Clínico</h3>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- DETALHES DOS SERVIÇOS -->
+    <section class="especialidades" id="detalhes-servicos">
+      <h2 style="text-align:center;margin-bottom:18px;color:#1f1f1f">Area de atuação</h2>
+      <div class="grid-cards">
+        <div class="card">
+          <h3>Avaliação Fonoaudiológica</h3>
+          <p>Principais serviços de tratamento terapêutico nas alterações de fala, comunicação,
+             voz, motricidade orofacial, disfagia, pré e pós operatório de cirurgias oncológicas de cabeça e pescoço  e bariátricas..</p>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- QUEM SOU -->
+    <section class="quem-sou" id="quem-sou">
+      <div class="wrap">
+        <div class="texto">
+          <h2>Quem Sou Eu</h2>
+          <p>Tainard, mais conhecida como Tai!
+            Sou uma Fonoaudióloga apaixonada pela arte do cuidar, que ajuda você a encontrar sua melhor versão, 
+            superando os desafios, oferecendo a você o acolhimento e o tratamento necessários para alcançarmos juntos suas metas e objetivos,
+             propondo seu desenvolvimento pessoal e sua melhor qualidade de vida.
+            Aqui você encontrará um serviço em saúde humanizado e de excelência, que respeita você e seu espaço, 
+            alinhando sua visão e suas expectativas.</p>
+        </div>
+        <div class="imagem">
+          <img src="IMG_3512.jpg" alt="Dra. Tainard foto">
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="depoimentos" id="depoimentos">
+      <h2>O que nossos pacientes dizem</h2>
+      <div class="slides-container">
+        <div class="slide">
+          <div class="autor">
+            <img src="IMG-20250921-WA0015.jpg" alt="Cristina Graciano">
+            <span>Cristina Graciano</span>
+          </div>
+          <p>Oi Dra Tainard! Quero te agradecer de coração por todo o cuidado, carinho e dedicação durante o tratamento do Heitor, 
+            só temos motivos para comemorar! A evolução dele foi incrível, e isso se deve muito ao seu trabalho competente, atencioso, 
+            humano. A forma como você conduziu cada sessão, sempre com paciência, sensibilidade, dedicação fez toda a diferença no desenvolvimento 
+            dele e também na nossa tranquilidade como família. Vc é simplesmente maravilhosa, nossa titia Tai do coração. 
+            Levamos conosco muita gratidão e admiração pelo seu profissionalismo. Muito obrigado por tudo❤</p>
+        </div>
+        <div class="slide">
+          <div class="autor">
+            <img src="IMG-20250921-WA0016.jpg" alt="Henrique Pinheiro">
+            <span>Henrique Pinheiro</span>
+          </div>
+          <p> O processo com a Tainard foi simplesmente incrível. Além de ser uma excelente fonoaudióloga, ela foi quase uma psicóloga pra mim. Sempre me atendeu com muito acolhimento, paciência e profissionalismo. As técnicas que ela utilizou foram extremamente eficazes e continuam me ajudando até hoje. Mais do que isso, os conselhos que ela me deu fizeram toda a diferença em um momento difícil da minha vida.
+            Hoje percebo grandes melhoras: minha língua agora permanece na posição de descanso correta, minha fala está mais clara e consigo pronunciar palavras que antes eu falava errado com naturalidade. Só tenho a agradecer por toda a dedicação, carinho e competência que a Tainard teve comigo durante esse processo. Super recomendo o trabalho dela! Muito obrigado por tudo!
+            </p>
+        </div>
+        <div class="slide">
+          <div class="autor">
+            <img src="IMG-20250921-WA0013.jpg" alt="Morgana Rocha">
+            <span>Morgana Rocha</span>
+          </div>
+          <p>Tive o prazer de ser acompanhada pela Tainard Leite durante meu processo de cirurgia bariátrica, e só tenho elogios ao seu trabalho.
+             Desde o início fui muito bem acolhida, com um atendimento humanizado, atencioso e extremamente profissional.
+              A Tainard sempre demonstrou paciência, empatia e um cuidado especial em cada orientação,
+               o que fez toda a diferença na minha evolução e recuperação.
+             Sou muito grata por ter tido ela ao meu lado nessa fase tão importante da minha vida. Recomendo de olhos fechados!</p>
+        </div>
+      </div>
+    </section>
+
+<!-- DETALHAMENTO DOS SERVIÇOS / CURIOSIDADES -->
+<section class="galeria" id="detalhes-servicos">
+    <h2 style="text-align:center;color:#1f1f1f;margin-bottom:18px">
+      Curiosidades sobre Fonoaudiologia
+    </h2>
+  
+    <div class="sobre-fono">
+      <div class="texto-fono">
+        <h3 style="font-size:1.4rem;margin-bottom:10px;">O que é Fonoaudiologia?</h3>
+        <p>
+          A Fonoaudiologia é a área da saúde que estuda, previne e trata distúrbios da comunicação humana,
+          como fala, linguagem, voz, audição e deglutição. Seu papel é fundamental para promover qualidade
+          de vida, melhorando a comunicação e a integração social dos indivíduos.
+        </p>
+        <p>
+          Por meio da atuação de fonoaudiólogos, crianças, adultos e idosos podem desenvolver suas habilidades
+          de comunicação, superar dificuldades e recuperar funções essenciais ao bem-estar.
+        </p>
+      </div>
+  
+      <div class="imagem-fono">
+        <!-- Substitua pelos seus arquivos reais -->
+        <img src="depositphotos_442707566-stock-illustration-silhouette-head-brain-white-background.webp" alt="Atendimento fonoaudiológico">
+        <img src="Disfagia19mar.jpg" alt="Exercícios de fonoaudiologia">
+      </div>
+    </div>
+  </section>
+  
+  
+
+    <!-- CONTATO -->
+    <section class="contato" id="contato">
+      <form onsubmit="event.preventDefault(); alert('Mensagem enviada (simulação)');">
+        <h2>Fale Conosco</h2>
+        <input type="text" placeholder="Seu nome" required>
+        <input type="email" placeholder="Seu e-mail" required>
+        <textarea rows="5" placeholder="Sua mensagem" required></textarea>
+        <button class="btn btn-primary" type="submit">Enviar Mensagem</button>
+      </form>
+      <aside class="infos">
+        <h3>Contato & Horário</h3>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/message/WHZDNYVVUJ6MM1" target="_blank">(62) 9 9177-5868</a></p>
+        <p><strong>E-mail:</strong> fgatainardleite@gmail.com</p>
+        <p><strong>Endereço:</strong> CLÍNICA VIVA - Av. Tocantins, 1311 - Setor Aeroporto - Goiânia - GO</p>
+        <p><strong>Horário:</strong><br>Seg–Sex: 08:00–18:00<br>Sáb: 08:00–12:00</p>
+        <div style="margin-top:12px;">
+          <iframe class="mapa" src="https://maps.google.com/maps?q=Goiânia&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <!-- FLOATING WHATSAPP -->
+  <a class="whatsapp-float" href="https://wa.me/message/WHZDNYVVUJ6MM1" target="_blank">
+    <i class="fab fa-whatsapp"></i> (62)9 9177-5868
+  </a>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Dra. Tainard — Todos os direitos reservados</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navUl = document.querySelector('#nav ul');
+  menuToggle?.addEventListener('click', ()=> navUl.classList.toggle('show'));
+  document.querySelectorAll('#nav ul li a').forEach(a=> a.addEventListener('click', ()=> navUl.classList.remove('show')));
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('keydown', (e)=> { if(e.key === 'Enter') el.click() })
+  });
+  </script>
+
+</body>
+</html>
+
+
